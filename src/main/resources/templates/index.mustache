@@ -1,6 +1,7 @@
 {{>layouts/header}}
 
     <h1>HSU Online Voting System</h1>
+    <hr>
     <div class="col-md-12">
         <div class="col-md-6">
             <a href="candidate/save" role="button" class="btn btn-primary">후보자 등록</a>
@@ -16,6 +17,12 @@
                 <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">
                     Naver Login</a>
             {{/userName}}
+        </div>
+        <hr>
+        <div>
+            {{#candidate}}
+                <a href="voteresult/{{id}}" role="button" class="btn btn-primary">{{id}}번 후보 투표 현황</a>
+            {{/candidate}}
         </div>
         <br>
     </div>

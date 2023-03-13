@@ -54,11 +54,11 @@ public class IndexController {
 
         return "vote";
     }
-    /*@GetMapping("/vote/result")
-    public String voteResult(Model model) {
-        model.addAttribute("candidate", candidateService.findAllDesc());
-        model.addAttribute("vote", voteService.findAllDesc());
+    @GetMapping("/voteresult/{id}")
+    public String voteResult(@PathVariable Long id, Model model) {
+        CandidateResponseDto dto = candidateService.findById(id);
+        model.addAttribute("candidate", dto);
 
-        return "vote-result";
-    }*/
+        return "voteresult";
+    }
 }

@@ -53,5 +53,6 @@ public class Candidate extends BaseTimeEntity {
         this.name_candidate2 = name_candidate2;
         this.gongyak = gongyak;
     }
+
 }
 

@@ -9,9 +9,9 @@ public interface VoteRepository extends JpaRepository<Vote, Long> {
 
     List<Vote> findAll();
 
-   /* @Query("select count(v) from Vote v where v.opposite = true")
-    long countByVoted();
+    @Query(value = "select count(v) from Vote v where v.opposite = true")
+    long countByVotedId();
 
-    @Query("select count(v) from Vote v where v.opposite = false")
-    long countByNotVoted();*/
+    @Query(value = "select count(v) from Vote v where v.opposite = false")
+    long countByNotVotedId();
 }

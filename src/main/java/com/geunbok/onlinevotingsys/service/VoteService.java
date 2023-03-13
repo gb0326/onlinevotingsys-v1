@@ -1,6 +1,5 @@
 package com.geunbok.onlinevotingsys.service;
 
-import com.geunbok.onlinevotingsys.controller.dto.CandidateListResponseDto;
 import com.geunbok.onlinevotingsys.controller.dto.VoteDto;
 import com.geunbok.onlinevotingsys.domain.CandidateRepository;
 import com.geunbok.onlinevotingsys.domain.Vote;
@@ -10,8 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -29,25 +26,17 @@ public class VoteService {
         return voteRepository.save(vote).getId();
     }
 
-    /*public ArrayList<Integer> getVoteResult(Long id) {
+    public ArrayList<Integer> getVoteResult() {
 
         ArrayList<Integer> result = new ArrayList<>();
 
-        long allCount = voteRepository.count();
-        long agreeCount = voteRepository.countByVoted();
-        long disagreeCount = voteRepository.countByNotVoted();
+        long agreeCount = voteRepository.countByVotedId();
+        long disagreeCount = voteRepository.countByNotVotedId();
 
         result.add((int)agreeCount);
         result.add((int)disagreeCount);
-        result.add((int)(allCount - agreeCount - disagreeCount));
 
         return result;
-    }*/
+    }
 
-    /*@Transactional(readOnly = true)
-    public List<VoteDto> findAllDesc() {
-        return voteRepository.findAllDesc().stream()
-                .map(VoteDto::new)
-                .collect(Collectors.toList());
-    }*/
 }
